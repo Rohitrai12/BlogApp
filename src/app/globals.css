@@ -19,8 +19,83 @@
   }
 }
 
+button{
+  cursor: pointer;
+}
+
+/* Root Theme Variables */
+:root {
+  /* Background and foreground */
+  --background: #ffffff;
+  --foreground: #000000;
+
+  /* Colors */
+  --color-primary: #EE2B69;
+  --color-primary-100: #FFE8F0;
+  --color-secondary: #FBE843;
+
+  --color-black: #000000;
+  --color-black-100: #333333;
+  --color-black-200: #141413;
+  --color-black-300: #7D8087;
+
+  --color-white: #FFFFFF;
+  --color-white-100: #F7F7F7;
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Box Shadows */
+  --shadow-100: 2px 2px 0px 0px rgb(0, 0, 0);
+  --shadow-200: 2px 2px 0px 2px rgb(0, 0, 0);
+  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 105);
+
+  /* Fonts */
+  --font-sans: 'Work Sans', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  /* Breakpoints */
+  --screen-xs: 475px;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Global Styles */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Example custom utility classes */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.shadow-custom-100 {
+  box-shadow: var(--shadow-100);
+}
+
+.rounded-lg-custom {
+  border-radius: var(--radius-lg);
+}
+
+/* You can even media-query your custom breakpoint */
+@media (min-width: var(--screen-xs)) {
+  .text-xs-screen {
+    font-size: 1.25rem;
+  }
 }
